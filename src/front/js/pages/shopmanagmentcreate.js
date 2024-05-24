@@ -9,7 +9,7 @@ const ShopManagmentCreate = () => {
         price: 0,
         image_product: "",
         description: "",
-        type: "equipamiento",
+        type: "Equipamiento",
         stock: 0
     });
     const navigate = useNavigate();
