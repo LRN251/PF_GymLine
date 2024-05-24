@@ -9,7 +9,7 @@ module.exports = {
   ],
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'), // Cambia 'public' a 'dist'
+    path: path.resolve(__dirname, 'dist'),
     publicPath: '/'
   },
   module: {
@@ -21,22 +21,22 @@ module.exports = {
       },
       {
         test: /\.(css|scss)$/, use: [{
-          loader: "style-loader" // creates style nodes from JS strings
+          loader: "style-loader" // crea nodos de estilo desde cadenas JS
         }, {
-          loader: "css-loader" // translates CSS into CommonJS
+          loader: "css-loader" // traduce CSS a CommonJS
         }]
-      }, // css only files
+      }, // solo archivos css
       {
         test: /\.(png|svg|jpg|gif|jpeg|webp)$/, use: {
           loader: 'file-loader',
           options: {
             name: '[name].[ext]',
-            outputPath: 'images/', // Guarda las imágenes en una carpeta llamada 'images'
-            publicPath: '/images/' // Ruta pública para acceder a las imágenes
+            outputPath: 'images/', // guarda las imágenes en una carpeta llamada 'images'
+            publicPath: '/images/' // ruta pública para acceder a las imágenes
           }
         }
-      }, // for images
-      { test: /\.woff($|\?)|\.woff2($|\?)|\.ttf($|\?)|\.eot($|\?)|\.svg($|\?)/, use: ['file-loader'] } // for fonts
+      }, // para imágenes
+      { test: /\.woff($|\?)|\.woff2($|\?)|\.ttf($|\?)|\.eot($|\?)|\.svg($|\?)/, use: ['file-loader'] } // para fuentes
     ]
   },
   resolve: {
@@ -45,7 +45,8 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       favicon: '4geeks.ico',
-      template: 'template.html'
+      template: 'template.html',
+      filename: 'template.html'
     }),
     new Dotenv({ safe: true, systemvars: true })
   ]
